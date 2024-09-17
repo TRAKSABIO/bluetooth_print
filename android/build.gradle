@@ -1,0 +1,43 @@
+group 'com.example.bluetooth_print'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.2'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 21
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation files('libs/gprintersdkv2.jar')
+    implementation "androidx.core:core:1.6.0"
+    implementation files('libs/tscsdk.jar')
+    implementation files('libs/tscsdk.jar')
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:3.0.2'
+//    implementation files("D:\\devtools\\flutter\\bin\\cache\\artifacts\\engine\\android-x64\\flutter.jar")
+}
