@@ -578,7 +578,7 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
       }else if("qrcode".equals(type)){
         // String message = "QRCODE " + x + "," + y + "," + ecc + "," + cell + "," + mode + "," + rotation + "," + model + "," + mask + "," + "\"" + content + "\"" + "\r\n";
         //TscDll.qrcode(x, y, "M", "5", "A", "0", "M1", "", content);
-        String message = "QRCODE " + x + "," + y + ",M,7,A,0," + "\"" + content + "\"";
+        String message = "QRCODE " + x + "," + y + ",M,5,A,0,M1,S7" + "\"" + content + "\"";
         //QRCODE x,y,ECC Level,cell width,mode,rotation,[justification,]model,]mask,]area] "content"
         //TscDll.qrcode(x, y, "M", "5", "A", "0", "M1", "", content);
         Log.e(TAG, "##### QRCODE -> " + message);
