@@ -585,7 +585,7 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
         TscDll.sendcommand(message);
       }
     }
-    TscDll.printlabel(1, copyNumber);
+    TscDll.printlabel(1, 1);
     TscDll.closeport(5000);
   }
 
