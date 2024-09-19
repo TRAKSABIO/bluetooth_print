@@ -536,7 +536,7 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
     int width = (int)(config.get("width")==null?50:config.get("width")); // 单位：mm
     int height = (int)(config.get("height")==null?30:config.get("height")); // 单位：mm
     int gap = (int)(config.get("gap")==null?2:config.get("gap"));
-    //int copyNumber = (int)(config.get("copyNumber")==null?2:config.get("copyNumber"));
+    int copyNumber = (int)(config.get("copyNumber")==null?1:config.get("copyNumber"));
 
     TscDll.openport(curMacAddress);
     TscDll.setup(width, height, 4, 4, 0, gap, 0);
@@ -585,7 +585,7 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
         TscDll.sendcommand(message);
       }
     }
-    TscDll.printlabel(1, 1);
+    TscDll.printlabel(1, copyNumber);
     TscDll.closeport(5000);
   }
 
