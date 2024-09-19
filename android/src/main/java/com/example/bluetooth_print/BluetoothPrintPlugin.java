@@ -578,10 +578,11 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
       }else if("qrcode".equals(type)){
         // String message = "QRCODE " + x + "," + y + "," + ecc + "," + cell + "," + mode + "," + rotation + "," + model + "," + mask + "," + "\"" + content + "\"" + "\r\n";
         //TscDll.qrcode(x, y, "M", "5", "A", "0", "M1", "", content);
-        String message = "QRCODE " + x + "," + y + ",M,5,A,0,M1,S7," + "\"" + content + "\"";
+        //String message = "QRCODE " + x + "," + y + ",M,5,A,0,M1,S7," + "\"" + content + "\"";
         //QRCODE x,y,ECC Level,cell width,mode,rotation,[justification,]model,]mask,]area] "content"
+        String message = qrcode(x, y, "M", "5", "A", "0", "M1", "", content);
         //TscDll.qrcode(x, y, "M", "5", "A", "0", "M1", "", content);
-        Log.e(TAG, "##### QRCODE -> " + message);
+        Log.e(TAG, "##### QRCODE - RETURN -> " + message);
         TscDll.sendcommand(message);
       }
     }
@@ -589,6 +590,10 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
     Log.e(TAG, "##### copyNumber -> " + Integer.toString(copyNumber));
     TscDll.printlabel(1, 1);
     TscDll.closeport(5000);
+  }
+
+  private String qrcode(int x, int y, String ecc, String cell, String mode, String rotation, String model, String mask, String content) {
+   return "QRCODE " + x + "," + y + "," + ecc + "," + cell + "," + mode + "," + rotation + "," + model + "," + mask + "," + "\"" + content + "\"" + "\r\n";
   }
 
   @Override
