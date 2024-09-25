@@ -588,7 +588,9 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
     }
     
     Log.e(TAG, "##### copyNumber -> " + Integer.toString(copyNumber));
-    TscDll.printlabel(1, 1);
+    // TscDll.printlabel(1, 1);
+    TscDll.printlabel(1, copyNumber);
+    
     TscDll.closeport(5000);
   }
 
