@@ -570,7 +570,7 @@ public class BluetoothPrintPlugin implements FlutterPlugin, ActivityAware, Metho
                 .add("\r\n").toString();
         Log.e(TAG, "##### stringBuilder -> " + command);
 
-        TscDll.sendcommand(command);
+        TscDll.sendcommandUTF8(command);
 
       }else if("barcode".equals(type)){
         String barcodeType = (String)(m.get("barcodeType")==""?"128":m.get("barcodeType"));
